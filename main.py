@@ -3,13 +3,17 @@ from dataclasses import dataclass
 @dataclass
 class Position:
     name: str
-    lon: float
-    lat: float
+    lon: float = 0.0
+    lat: float = 0.0
+
+@dataclass
+class Capital(Position):
+    country: str = 'Unknown' # if no default valout, it don't work
+    lat: float = 40.0 # if no default valout, it don't work
 
 def main() -> None:
-    pos = Position('Oslo', 10.8, 59.9)
-    print(pos)
-    print(f'{pos.name} is at {pos.lat}°N, {pos.lon}°E')
+    cap = Capital('Madrid', country='Spain')
+    print(cap)
   
 if __name__ == '__main__':
     main()
